@@ -1,0 +1,17 @@
+{% extends 'global/base.html' %}
+
+{% block titulo %} 
+Assuntos Blog
+{% endblock titulo %}
+
+{% block info %} 
+<ol>
+  <li>Python</li>
+  <li>Html</li>
+  <li>Css</li>
+  <li>Bootstrap</li>
+</ol>
+<!-- abaixo a solução definitiva para o link de artigos -->
+<a class="btn btn-info" href="{% url 'artigos' %}">Artigo</a>
+
+{% endblock info %}  

@@ -1,0 +1,29 @@
+{% extends 'global/base.html' %}
+
+{% block formulario %}
+
+<div class="container">
+    <h1>Cadastrar Contato</h1>  
+    <form action="{% url 'gravar' %}" method="post"  enctype="multipart/form-data">
+        {% csrf_token %} <!-- para evitar ataques -->
+        <label for="nome">Nome</label>
+        <input type="text" class="form-control {% if nome_error %}is-invalid{% endif %}" name="nome" value={{nome}}>
+        <label for="nome">Idade</label>
+        <input type="text" class="form-control {% if idade_error %}is-invalid{% endif %}" name="idade" value={{idade}}>
+        <label for="email">Email</label>
+        <input type="text" class="form-control {% if email_error %}is-invalid{% endif %}" name="email" value={{email}}>
+        <label for="img">Foto</label>
+        <input type="file" name="img" id="img">
+        {% if error %}
+          {% block error %}<div class="alert alert-danger"> {{error}} </div>  {% endblock error %}
+        {% endif %}
+        <br>
+        <button class="btn btn-primary">Enviar</button>
+    </form>
+</div>
+</body>
+</html>
+
+
+{% endblock formulario %}  
+

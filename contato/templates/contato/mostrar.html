@@ -1,0 +1,35 @@
+{% extends 'global/base.html' %}
+
+{% block formulario %}
+
+<div class="container">
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Email</th>
+           <!--<th>Imagem</th>-->
+            <th>Operações</th>
+        </tr>
+        {% for pessoa in pessoas %}
+        <tr>
+            <td>{{pessoa.id_pessoa}}</td>
+            <td>{{pessoa.nome}}</td>
+            <td>{{pessoa.idade}}</td>
+            <td>{{pessoa.email}}</td>
+            <!--<td><img src="{{pessoa.img.url}}" width="50"></td> -->
+
+          
+            <td>
+                <a href={% url 'editar' pessoa.id_pessoa %}>Editar</a>
+                <a href={% url 'apagar' pessoa.id_pessoa %}>Apagar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</div>
+
+
+{% endblock formulario %}  

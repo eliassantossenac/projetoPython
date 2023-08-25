@@ -1,0 +1,32 @@
+{% extends 'global/base.html' %}
+
+{% block formulario %}
+
+<div class="container">
+    <h1>Localizar Contato</h1>  
+    <form action={% url 'localizar' %} method="post" class="form-control">
+        {% csrf_token %} <!-- para evitar ataques -->
+        <label for="id">Informe o id</label>
+        <input type="text" class="form-control" name="id" id="id">
+        <button class="btn btn-primary mt-2 mb-2">Enviar</button>
+
+        {% if pessoa.id_pessoa %}
+        <ul class="list-group list-group-flush mb-1">
+            <li class="list-group-item active">{{pessoa.id_pessoa}}</li>
+            <li class="list-group-item">{{pessoa.nome}}</li>
+            <li class="list-group-item">{{pessoa.idade}}</li>
+            <li class="list-group-item">{{pessoa.email}}</li>
+        </ul>
+        {% elif erro %}
+            <div class="alert alert-danger" role="alert">
+                {{ erro }}
+            </div>
+        {% endif %}
+    </form>
+    <br>
+</div>
+</body>
+</html>
+
+{% endblock formulario %}  
+

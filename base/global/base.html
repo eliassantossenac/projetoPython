@@ -1,0 +1,21 @@
+    {% include 'global/partials/head.html' %}
+    {% include 'global/partials/menu.html' %}
+    
+    <article class="container bg-primary text-bg-primary">
+        {% block texto %}{% endblock texto %}
+    </article>
+
+    <article class="container">
+        <h1>{% block titulo %}{% endblock titulo %}</h1>
+        <div style="background-color:#FBF2EF">
+            {% block info %}{% endblock info %}
+        </div>
+    </article>
+
+    <article class="container bg-secondary">
+        {% block formulario %}{% endblock formulario %}
+    </article>
+    
+</body>
+</html>
+

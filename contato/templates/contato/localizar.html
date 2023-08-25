@@ -1,0 +1,37 @@
+{% extends 'global/base.html' %}
+{% block formulario %}
+<div class="container">
+    <h1>Localizar Contato</h1>  
+    <form action="{% url 'localizar' %}" method="post" class="form-control">
+        {% csrf_token %} <!-- para evitar ataques -->
+        <label for="tbusca">Consulta por:</label>
+        <select id="tbusca" name="tbusca" class="form-control">
+            <option value="id">Id</option>
+            <option value="nome">Nome</option>
+            <option value="email">Email</option>
+        </select>
+        <label for="busca">Informe o valor parametro</label>
+        <input type="text" class="form-control" name="busca" id="busca" value={{busca}}>
+        <button class="btn btn-primary mt-2 mb-2">Enviar</button>
+    </form>
+        {% if pessoas %}
+            <h2>Resultados da Pesquisa</h2>
+            {% for pessoa in pessoas %}
+                <ul class="list-group list-group-flush mb-1">
+                    <li class="list-group-item active">{{pessoa.id_pessoa}}</li>
+                    <li class="list-group-item">{{pessoa.nome}}</li>
+                    <li class="list-group-item">{{pessoa.idade}}</li>
+                    <li class="list-group-item">{{pessoa.email}}</li>
+                </ul>
+            {% endfor %}
+            
+        {% elif erro %}
+            <div class="alert alert-danger" role="alert">
+                {{ erro }}
+            </div>
+        {% endif %}
+    <br>
+</div>
+</body>
+</html>
+{% endblock formulario %}  

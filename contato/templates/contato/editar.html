@@ -1,0 +1,22 @@
+{% extends 'global/base.html' %}
+
+{% block formulario %}
+
+<div class="container">
+    <h1>Editar Contato</h1>  
+    <form action="{% url 'atualizar' pessoa.id_pessoa %}" method="post">
+        {% csrf_token %} <!-- para evitar ataques -->
+        <label for="nome">Nome</label>
+        <input type="text" class="form-control" name="nome" value="{{pessoa.nome}}">
+        <label for="nome">Idade</label>
+        <input type="text" class="form-control" name="idade" value="{{pessoa.idade}}">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" name="email" value="{{pessoa.email}}">
+        <br>
+        <button class="btn btn-primary">Enviar</button>
+    </form>
+</div>
+</body>
+</html>
+
+{% endblock formulario %}  

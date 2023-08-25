@@ -1,0 +1,37 @@
+<!-- Example Code -->
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'principal' %}"><img src="/static/global/img/python.jpg" width="50"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'principal' %}">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Blog
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'blog' %}">Início</a></li>
+            <li><a class="dropdown-item" href="{% url 'artigos' %}">Artigos</a></li>
+          </ul>
+         </li>
+         <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Contato
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'contato' %}">Cadastrar</a></li>
+            <li><a class="dropdown-item" href="{% url 'image_upload' %}">Upload</a></li>
+            <li><a class="dropdown-item" href="{% url 'mostrar' %}">Mostrar</a></li>
+            <li><a class="dropdown-item" href="{% url 'localizar' %}">Localizar</a></li>
+          </ul>
+         </li>          
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- End Example Code -->

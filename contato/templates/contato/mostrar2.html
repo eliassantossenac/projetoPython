@@ -1,0 +1,30 @@
+{% extends 'global/base.html' %}
+
+{% block formulario %}
+
+<div class="container">
+    
+    <div class="row">
+        {% for pessoa in pessoas %}
+
+        <div class="col-2 col-md-3">
+        <div class="card" style="width: 18rem;">
+            <div class="card-header">
+              {{pessoa.id_pessoa}}
+            </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{pessoa.nome}}</li>
+            <li class="list-group-item">{{pessoa.idade}}</li>
+            <li class="list-group-item">{{pessoa.email}}</li>
+            <li class="list-group-item">
+                <a href={% url 'editar' pessoa.id_pessoa %}>Editar</a>
+                <a href={% url 'apagar' pessoa.id_pessoa %}>Apagar</a>
+            </li>
+        </ul>
+    </div></div>
+        {% endfor %}
+</div>
+</div>
+
+
+{% endblock formulario %}  
